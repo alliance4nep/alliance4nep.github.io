@@ -1,0 +1,112 @@
+:root {
+    --rem: 14;
+}
+
+body {
+    font-size: calc(1.0625px * var(--rem));
+    letter-spacing: calc(0px * var(--rem));
+    line-height: calc(2px * var(--rem));
+}
+section {
+    padding: 2rem;
+}
+section:nth-child(even) {background: #fcfcfc}
+section:nth-child(odd) {background: #FFF}
+section h2 {
+    color: #333;
+    padding: 1rem 1rem 3rem 0;
+    margin-bottom:1rem;
+    text-align:center;
+    font-weight:800;
+
+}
+h2 {
+    color: #333;
+    padding: 1rem 1rem 3rem 0;
+    margin-bottom:1rem;
+}
+
+h4 {
+    color: #CB3142;
+}
+#about{
+    position:relative;
+    padding-right:20vw;
+}
+.about-icon {
+    background: url(https://alliance4nep.github.io/images/icon.png) no-repeat left top;
+    height:300px;
+    width:20vw;
+    opacity:.1;
+    position:absolute;
+    right:0;
+    bottom:0;
+}
+
+#social {
+    margin: 50px 0;
+}
+.nav-item a {
+    font-weight:bold;
+    padding:.2rem 1rem !important;
+    border-bottom: 3px solid Transparent ;
+
+}
+.nav-item.active a,
+.nav-item a:hover {
+    color:#fff;
+    border-bottom: 3px solid #CB3142;
+}
+
+
+.social ul {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+.social a {
+    padding: 7px;
+    color: black;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.social a:not(:first-child) {
+    margin-left: 20px;
+}
+
+.social i {
+    vertical-align: middle;
+    transition: color .3s ease-in-out;
+}
+
+.social a:nth-child(1):hover i {
+    color: #3B5998;
+}
+
+.social a:nth-child(2):hover i {
+    color: #4099FF;
+}
+
+.social a:nth-child(3):hover i {
+    color: #007bb6;
+}
+
+.social a:nth-child(4):hover i {
+    color: #ccc;
+}
+
+.social a:nth-child(5):hover i {
+    color: steelblue;
+}
+
+.card {
+    margin-bottom: 1rem;
+    border: 0;
+    border-radius: 0;
+}
+
+.card:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
