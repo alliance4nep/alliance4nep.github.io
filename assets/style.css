@@ -7,10 +7,16 @@ body {
     letter-spacing: calc(0px * var(--rem));
     line-height: calc(2px * var(--rem));
 }
-
+p {
+    color: #5a5872;
+}
 section {
     padding: 2rem;
 }
+section#about{
+    padding: 0;
+}
+
 
 section:nth-child(even) {
     background: #fcfcfc
@@ -35,22 +41,25 @@ h2 {
 h4 {
     color: #CB3142;
 }
-
-#about .container {
+.about_area{
     position: relative;
-    padding: 5rem;
-    padding-right: 30vw;
-    min-height: 300px;
+}
+.about_content {
+    padding: 5rem 5rem 5rem 0;
+    min-height: 400px;
 }
 
-.about-icon {
-    background: url(https://alliance4nep.github.io/images/icon.png) no-repeat left top;
-    height: 300px;
-    width: 20vw;
-    opacity: .1;
+.about_image{
+    background-image: url("../images/grouphands.jpg");
     position: absolute;
+    top: 0;
     right: 0;
-    bottom: 0;
+    width:50%;
+    height:100%;
+
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #social {
@@ -135,4 +144,8 @@ h4 {
     text-align: center;
     padding: 1rem;
     margin: 0 auto;
+}
+#action .card h5,
+#action .card p {
+    text-align: center;
 }
