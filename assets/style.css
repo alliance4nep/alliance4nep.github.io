@@ -1,5 +1,6 @@
 :root {
     --rem: 14;
+    --bs-blue: #0F3A8E;
 }
 
 body {
@@ -30,15 +31,13 @@ section:nth-child(odd) {
 }
 
 section h2 {
-    text-align: center;
     font-weight: 800;
-
 }
 
 h2 {
     color: #333;
-    padding: 1rem 1rem 3rem 0;
-    margin-bottom: 1rem;
+    /*padding: 1rem 1rem 3rem 0;*/
+    /*margin-bottom: 1rem;*/
 }
 
 h4 {
