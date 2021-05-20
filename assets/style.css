@@ -20,6 +20,19 @@ section {
 section#about {
     padding: 0;
 }
+
+.pt-120 {
+    padding-top: 120px;
+}
+.btn-primary {
+    height: 55px;
+    line-height: 55px;
+    padding: 0 40px;
+    border-radius: 0;
+    color: #fff;
+    background-color: #0F3A8E;
+    border:0;
+}
 .bg_cover {
     background-position: center center;
     background-size: cover;
