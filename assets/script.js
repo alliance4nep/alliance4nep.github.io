@@ -22,12 +22,23 @@ const dataJSON = [
     }
 ];
 
+
 // var dataObject = JSON.parse(dataJSON)
 // console.log(dataObject);
 
-dataJSON.forEach(buildNewList);
+async function loadJSON (url) {
+    const res = await fetch(url);
+    return await res.json();
+}
+
+loadJSON('../data/media.json').then(data => {
+    //console.log(data[0].title);
+    data.forEach(buildNewList);
+});
+
+//dataJSON.forEach(buildNewList);
 
 function buildNewList(item, index) {
-    var news = `<div class="card"><div class="card-body"><h5 class="card-title">${item.title}</h5><h6 class="card-subtitle mb-2 text-muted">${item.date}</h6><p class="card-text">${item.desc}</p><a href="${item.link}" class="card-link">${item.linklabel}</a></div></div>`;
+    const news = `<div class="card"><div class="card-body"><h5 class="card-title">${item.title}</h5><h6 class="card-subtitle mb-2 text-muted">${item.date}</h6><p class="card-text">${item.desc}</p><a href="${item.link}" class="card-link">${item.linklabel}</a></div></div>`;
     document.getElementById("mediaList").insertAdjacentHTML('beforeend',news);
 }
