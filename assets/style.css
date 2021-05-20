@@ -7,13 +7,16 @@ body {
     letter-spacing: calc(0px * var(--rem));
     line-height: calc(2px * var(--rem));
 }
+
 p {
     color: #5a5872;
 }
+
 section {
     padding: 2rem;
 }
-section#about{
+
+section#about {
     padding: 0;
 }
 
@@ -41,25 +44,35 @@ h2 {
 h4 {
     color: #CB3142;
 }
-.about_area{
+
+.about_area {
     position: relative;
 }
+
 .about_content {
     padding: 5rem 5rem 5rem 0;
     min-height: 400px;
 }
 
-.about_image{
+.about_image {
     background-image: url("../images/grouphands.jpg");
     position: absolute;
     top: 0;
     right: 0;
-    width:50%;
-    height:100%;
+    width: 50%;
+    height: 100%;
 
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+@media (max-width: 767px) {
+    .about_image {
+        width: 100%;
+        height: 400px;
+        position: relative;
+    }
 }
 
 #social {
@@ -145,6 +158,7 @@ h4 {
     padding: 1rem;
     margin: 0 auto;
 }
+
 #action .card h5,
 #action .card p {
     text-align: center;
