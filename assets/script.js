@@ -1,4 +1,11 @@
-var dataJSON = [
+const dataJSON = [
+    {
+        "title": "आस्क फाउन्डेशन नेपालले सुरु गर्याे 'कोभिड एलिएन्स' हटलाइन सेवा",
+        "date": "May 20, 2021",
+        "desc": "Hotline covered by Setopati"   ,
+        "linklabel": "read more",
+        "link": "https://www.setopati.com/kinmel/medical/237935"
+    },
     {
         "title": "Press Release - Covid Alliance for Nepal - UK",
         "date": "May 18, 2021",
@@ -21,6 +28,6 @@ var dataJSON = [
 dataJSON.forEach(buildNewList);
 
 function buildNewList(item, index) {
-    document.getElementById("mediaList").appendChild('<div class="card"><div class="card-body"><h5 class="card-title">' + item.title + '</h5><h6 class="card-subtitle mb-2 text-muted"> ' + item.date + '</h6><p class="card-text">' + item.desc + ' </p><a href="' + item.link + '" class="card-link">' + item.linklabel + '</a></div></div>');
-    //document.getElementById("mediaList").appendChild (`<div class="card"><div class="card-body"><h5 class="card-title">${item.title}</h5><h6 class="card-subtitle mb-2 text-muted">${item.date}</h6><p class="card-text">${item.desc}</p><a href="${item.link}" class="card-link">${item.linklabel}</a></div></div>`);
+    var news = `<div class="card"><div class="card-body"><h5 class="card-title">${item.title}</h5><h6 class="card-subtitle mb-2 text-muted">${item.date}</h6><p class="card-text">${item.desc}</p><a href="${item.link}" class="card-link">${item.linklabel}</a></div></div>`;
+    document.getElementById("mediaList").insertAdjacentHTML('beforeend',news);
 }
