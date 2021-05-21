@@ -11,6 +11,7 @@
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/c75545334b.js" crossorigin="anonymous"></script>
     <link href="assets/style.css" rel="stylesheet">
+    <script src="assets/script.js"></script>
 
     <!-- Faviocons-->
     <link rel="apple-touch-icon" sizes="57x57" href="images/icons/apple-icon-57x57.png">
@@ -90,23 +91,8 @@
 <section id="media">
     <div class="container">
         <h2 class="py-5">Contribute</h2>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Press Release - Covid Alliance for Nepal - UK</h5>
-                <h6 class="card-subtitle mb-2 text-muted">May 18, 2021</h6>
-                <p class="card-text">Leading Public Figures Call on UK Government for Oxygen for Nepal</p>
-                <a href="press-release-20210518.html" class="card-link">read more</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">‘Urgent: Oxygen Needed’: Nepalis mobilise to take charge in Covid crisis</h5>
-                <h6 class="card-subtitle mb-2 text-muted">May 18, 2021</h6>
-                <p class="card-text">Pete Pattison</p>
-                <a href="https://www.theguardian.com/global-development/2021/may/18/urgent-oxygen-needed-nepalis-mobilise-to-take-charge-in-covid-crisis"
-                   class="card-link" target="_blank">read more</a>
-            </div>
-        </div>
+        <div id="render_target"></div>
+
     </div>
 </section>
 <section id="contact">
@@ -131,7 +117,6 @@
     </div>
 </section>
 <!-- Optional JavaScript; choose one of the two! -->
-
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
@@ -165,6 +150,14 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 </script>
+<script>
+    function buildNewList(item, index) {
+        const links = `<div class="card"><div class="card-body"><h5 class="card-title">${item.title}</h5><h6 class="card-subtitle mb-2 text-muted">${item.region}</h6><a class="card-text">${item.for}</p><a href="${item.url}" class="card-link">${item.org}</a></div></div>`;
+        document.getElementById("render_target").insertAdjacentHTML('beforeend', links);
+    }
+
+    render('https://gsx2json.com/api?id=1sgPx0ztAnK59AeU_qYfyv0OPzfvypzPf5MybeXD1qCo&sheet=1&columns=false', buildNewList);
+</script>    
 </body>
 
 </html>

@@ -2,7 +2,7 @@ const dataJSON = [
     {
         "title": "आस्क फाउन्डेशन नेपालले सुरु गर्याे 'कोभिड एलिएन्स' हटलाइन सेवा",
         "date": "May 20, 2021",
-        "desc": "Hotline covered by Setopati"   ,
+        "desc": "Hotline covered by Setopati",
         "linklabel": "read more",
         "link": "https://www.setopati.com/kinmel/medical/237935"
     },
@@ -22,23 +22,11 @@ const dataJSON = [
     }
 ];
 
-
-// var dataObject = JSON.parse(dataJSON)
-// console.log(dataObject);
-
-async function loadJSON (url) {
-    const res = await fetch(url);
-    return await res.json();
+function render(url, insertCallback) {
+    fetch(url)
+        .then(r => r.json())
+        .then(data => {
+            data.rows.forEach(insertCallback);
+        });
 }
 
-loadJSON('../data/media.json').then(data => {
-    //console.log(data[0].title);
-    data.forEach(buildNewList);
-});
-
-//dataJSON.forEach(buildNewList);
-
-function buildNewList(item, index) {
-    const news = `<div class="card"><div class="card-body"><h5 class="card-title">${item.title}</h5><h6 class="card-subtitle mb-2 text-muted">${item.date}</h6><p class="card-text">${item.desc}</p><a href="${item.link}" class="card-link">${item.linklabel}</a></div></div>`;
-    document.getElementById("mediaList").insertAdjacentHTML('beforeend',news);
-}
