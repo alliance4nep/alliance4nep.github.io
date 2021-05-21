@@ -33,7 +33,7 @@ function renderNav(currentpage) {
 
     const buildNav = (item, index) => {
         const isActive = item.label === currentpage ? 'active' : '';
-        const navs = `<li class="nav-item"><a class="nav-link ${isActive}" href="${item.link}">${item.label}</a></li>`;
+        const navs = `<li class="nav-item ${isActive}"><a class="nav-link" href="${item.link}">${item.label}</a></li>`;
         document.getElementById("render_nav").insertAdjacentHTML('beforeend', navs);
     }
 
