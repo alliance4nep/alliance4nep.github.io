@@ -1,26 +1,44 @@
-const dataJSON = [
-    {
-        "title": "आस्क फाउन्डेशन नेपालले सुरु गर्याे 'कोभिड एलिएन्स' हटलाइन सेवा",
-        "date": "May 20, 2021",
-        "desc": "Hotline covered by Setopati",
-        "linklabel": "read more",
-        "link": "https://www.setopati.com/kinmel/medical/237935"
+const navJSON = [{
+        "label": "Home",
+        "link": "/",
     },
     {
-        "title": "Press Release - Covid Alliance for Nepal - UK",
-        "date": "May 18, 2021",
-        "desc": "Leading Public Figures Call on UK Government for Oxygen for Nepal",
-        "linklabel": "read more",
-        "link": "https://alliance4nep.github.io/press-release-20210518.html"
+        "label": "About",
+        "link": "about.html",
     },
     {
-        "title": "‘Urgent: Oxygen Needed’: Nepalis mobilise to take charge in Covid crisis",
-        "date": "May 18, 2021",
-        "desc": "Pete Pattison",
-        "linklabel": "read more",
-        "link": "https://www.theguardian.com/global-development/2021/may/18/urgent-oxygen-needed-nepalis-mobilise-to-take-charge-in-covid-crisis"
+        "label": "Initiatives",
+        "link": "initiatives.html",
+    },
+    {
+        "label": "Media",
+        "link": "media.html",
+    },
+    {
+        "label": "Donate",
+        "link": "https://linktr.ee/alliance4nep",
+    },
+    {
+        "label": "Gaps",
+        "link": "gaps.html",
+    },
+    {
+        "label": "Get Involved",
+        "link": "/#help",
     }
 ];
+
+
+function renderNav(currentpage) {
+
+    const buildNav = (item, index) => {
+        const isActive = item.label === currentpage ? 'active' : '';
+        const navs = `<li class="nav-item"><a class="nav-link ${isActive}" href="${item.link}">${item.label}</a></li>`;
+        document.getElementById("render_nav").insertAdjacentHTML('beforeend', navs);
+    }
+
+    navJSON.forEach(buildNav);
+}
 
 function render(url, insertCallback) {
     fetch(url)
@@ -29,4 +47,3 @@ function render(url, insertCallback) {
             data.rows.forEach(insertCallback);
         });
 }
-
