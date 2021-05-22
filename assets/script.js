@@ -19,7 +19,7 @@ const navJSON = [{
     },
     {
         "label": "Donate",
-        "link": "https://linktr.ee/alliance4nep",
+        "link": "donate.html",
     },
     {
         "label": "Gaps",
