@@ -742,3 +742,23 @@ h4 {
 .iconlist .col {
     text-align: center;
 }
+.help-panel > div{
+    height: 400px;
+    padding:2rem;
+    color: #FFFFFF;
+}
+.help-panel:nth-child(1) > div{
+    background-color: rgba(54, 54, 54, 0.8);
+}
+.help-panel:nth-child(2) > div{
+    background-color: rgba(203, 49, 66, 0.8);
+}
+.help-panel:nth-child(3) > div{
+    background-color: rgba(15, 58, 142, 0.8);
+}
+.help-panel .num{
+    font-size: 3rem;
+    line-height:1;
+    font-weight:800;
+    padding-bottom: 2rem;
+}
