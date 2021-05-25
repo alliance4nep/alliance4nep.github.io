@@ -117,7 +117,7 @@
 </nav>-->
 <section id="media">
     <div class="container py-5">
-        <h2 class="py-5">Contribute</h2>
+        <h2 class="py-5">Contribute</h2><div id="loading" class="loader"></div>
         <div id="render_target"></div>
 
     </div>
@@ -180,11 +180,11 @@
 </script>
 <script>
     function buildNewList(item, index) {
-        const links = `<div class="card"><div class="card-body"><h5 class="card-title">${item.title}</h5><h6 class="card-subtitle mb-2 text-muted">From ${item.region} to support ${item.for}</h6><p class="card-text">${item.description}</p><a href="${item.website}" class="card-link">${item.org}</a><a href="${item.url}" class="card-link">Donate</a></div></div>`;
+        const links = `<div class="card"><div class="card-body"><h5 class="card-title">${item.title}</h5><h6 class="card-subtitle mb-2 text-muted">From ${item.region} to support ${item.for}</h6><p class="card-text">${item.description}</p><a href="${item.website}" target="_blank" class="card-link">${item.org}</a><a href="${item.url}" target="_blank" class="card-link">Donate</a></div></div>`;
         document.getElementById("render_target").insertAdjacentHTML('beforeend', links);
     }
 
-    render('https://gsx2json.com/api?id=1sgPx0ztAnK59AeU_qYfyv0OPzfvypzPf5MybeXD1qCo&sheet=1&columns=false', buildNewList);
+    render('https://gsx2json.com/api?id=1sgPx0ztAnK59AeU_qYfyv0OPzfvypzPf5MybeXD1qCo&sheet=1&columns=false', buildNewList, document.getElementById('loading'));
 </script>
 </body>
 

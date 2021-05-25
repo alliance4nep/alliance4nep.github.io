@@ -117,6 +117,7 @@
 <section id="media">
     <div class="container py-5">
         <h2 class="py-5">Media Coverage</h2>
+        <div id="loading" class="loader"></div>
         <div id="render_target"></div>
     </div>
 </section>
@@ -180,11 +181,11 @@
     <script>
 
         function buildNewList(item, index) {
-            const news = `<div class="card"><div class="card-body"><h5 class="card-title">${item.title}</h5><h6 class="card-subtitle mb-2 text-muted">${item.date}</h6><p class="card-text">${item.desc}</p><a href="${item.link}" class="card-link">${item.linklabel}</a></div></div>`;
+            const news = `<div class="card"><div class="card-body"><h5 class="card-title">${item.title}</h5><h6 class="card-subtitle mb-2 text-muted">${item.date}</h6><p class="card-text">${item.desc}</p><a href="${item.link}" target="_blank" class="card-link">${item.linklabel}</a></div></div>`;
             document.getElementById("render_target").insertAdjacentHTML('beforeend', news);
         }
 
-        render('https://gsx2json.com/api?id=1GhnrQLqE8dnprW2v3lTKJaYJECcwRfNIiazu49TbREs&sheet=1&columns=false', buildNewList);
+        render('https://gsx2json.com/api?id=1GhnrQLqE8dnprW2v3lTKJaYJECcwRfNIiazu49TbREs&sheet=1&columns=false', buildNewList, document.getElementById('loading'));
     </script>
 </body>
 
