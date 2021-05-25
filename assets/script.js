@@ -26,20 +26,20 @@ var navJSON = [{
         "link": "gaps.html",
     },
     {
-        "label": "Get Involved",
-        "link": "/#help",
+        "label": "Contact",
+        "link": "contact.html",
     }
 ];
-function renderNav(currentpage) {
 
+function renderNav(currentpage) {
     const buildNav = (item, index) => {
         const isActive = item.label === currentpage ? 'active' : '';
         const navs = `<li class="nav-item ${isActive}"><a class="nav-link ${isActive}" href="${item.link}">${item.label}</a></li>`;
         document.getElementById("render_nav").insertAdjacentHTML('beforeend', navs);
     }
-
     navJSON.forEach(buildNav);
 }
+
 /*=====================================
 Remote content
 ======================================= */
@@ -54,8 +54,11 @@ function render(url, insertCallback, spinnerElement) {
             return 0;
         })
         .then(x => document.dispatchEvent(new Event('renderComplete')))
-        .finally( () => { if(spinnerElement) spinnerElement.classList.add('d-none') });
+        .finally(() => {
+            if (spinnerElement) spinnerElement.classList.add('d-none')
+        });
 }
+
 /*=====================================
 Sticky
 ======================================= */
@@ -71,14 +74,4 @@ window.onscroll = function () {
         header_navbar.classList.remove("sticky");
         logo.setAttribute("src", "images/logo-white.svg")
     }
-
-    //
-    //
-    // // show or hide the back-top-top button
-    // var backToTo = document.querySelector(".back-to-top");
-    // if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    //     backToTo.style.display = "block";
-    // } else {
-    //     backToTo.style.display = "none";
-    // }
 };
