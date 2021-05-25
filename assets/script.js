@@ -1,7 +1,7 @@
 /*=====================================
 Nav Bar
 ======================================= */
-const navJSON = [{
+var navJSON = [{
         "label": "Home",
         "link": "/",
     },
@@ -43,12 +43,18 @@ function renderNav(currentpage) {
 /*=====================================
 Remote content
 ======================================= */
-function render(url, insertCallback) {
+function render(url, insertCallback, spinnerElement) {
+    if (spinnerElement) {
+        spinnerElement.classList.remove('d-none');
+    }
     fetch(url)
         .then(r => r.json())
         .then(data => {
             data.rows.forEach(insertCallback);
-        });
+            return 0;
+        })
+        .then(x => document.dispatchEvent(new Event('renderComplete')))
+        .finally( () => { if(spinnerElement) spinnerElement.classList.add('d-none') });
 }
 /*=====================================
 Sticky
