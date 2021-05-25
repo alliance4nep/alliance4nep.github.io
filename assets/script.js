@@ -26,6 +26,10 @@ var navJSON = [{
         "link": "gaps.html",
     },
     {
+        "label": "Resources",
+        "link": "resources.html",
+    },
+    {
         "label": "Contact",
         "link": "contact.html",
     }
