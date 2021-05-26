@@ -13,8 +13,14 @@
     <script src="assets/script.js"></script>
     <link href="assets/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css"/>
+ 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
     <!-- Faviocons-->
     <link rel="apple-touch-icon" sizes="57x57" href="images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="images/icons/apple-icon-60x60.png">
@@ -99,27 +105,11 @@
 <section id="aboutpage">
     <div class="container py-5">
         <h2 class="py-5">Isolation Centers</h2>
-        <div id="loading" class="loader"></div>
+        <div id="loading" class="loader" hidden></div>
         <table id="isolation_centers" class="table">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Pradesh</th>
-                <th>District</th>
-                <th>Palika</th>
-                <th>Ward</th>
-                <th>Contact Person</th>
-                <th>Contact</th>
-                <th>Bed Capacity</th>
-                <th>Map</th>
-                <th>Oxygen</th>
-                <th>Food</th>
-                <th>Operated by</th>
-                <th>Cost</th>
-            </tr>
-            </thead>
-            <tbody id="render_target"></tbody>
         </table>
+        <p>To add to this list please fill this <a target="_blank" href="https://alliance4nep.page.link/isolation-centers-form">form</a></p> 
+        <p>Source: <a href="https://alliance4nep.page.link/isolation-centers" target="_blank">Google spreadsheet</a></p>
     </div>
 </section>
 <section id="contact">
@@ -146,13 +136,11 @@
 
 <!-- Optional JavaScript; choose one of the two! -->
 
-<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
         
-<script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
@@ -185,33 +173,38 @@
 
 
 <script>
-
-function buildNewList(item, index) {
-    if (item.patientcontactnumber) {
-
-        const params = ['name', 'locality', 'ward', 'patientcontact', 'bedcapacity', 'oxygen', 'food', 'operatedby', 'cost'];
-        params.forEach((prop) => item[prop] = item[prop] ? item[prop] : '' );
-
-        //todo 
-        if (item.lat && item.long) {
-            item.maplink = `https://www.openstreetmap.org/#map=18/${item.lat}/${item.long}`;
-        } else if(!item.maplink) {
-            item.maplink = '#';
-        }
-
-        const row = `<tr><td>${item.name} ${item.locality}</td><td>${item.pradesh}</td><td>${item.district}</td><td>${item.palika}</td><td>${item.ward}</td><td>${item.patientcontact}</td><td>${item.patientcontactnumber}</td><td>${item.bedcapacity}</td><td><a href="${item.maplink}" target="_blank">map</a></td><td>${item.oxygen}</td><td>${item.food}</td><td>${item.operatedby}</td><td>${item.cost}</td></tr>`;
-        document.getElementById("render_target").insertAdjacentHTML('beforeend', row);
-    }
-}
-
-render('https://gsx2json.com/api?id=1GhnrQLqE8dnprW2v3lTKJaYJECcwRfNIiazu49TbREs&sheet=3&columns=false', buildNewList, document.getElementById('loading'));
-
-document.addEventListener('renderComplete', () =>
-    $("#isolation_centers").bootstrapTable(
-        {
-            pagination: true,
-            search: true
-        }));
+    $('#isolation_centers').DataTable({
+        ajax: {
+            "url": "https://gsx2json.com/api?id=1GhnrQLqE8dnprW2v3lTKJaYJECcwRfNIiazu49TbREs&sheet=3&columns=false",
+            "dataSrc": "rows"
+        },
+        responsive: true,
+        columns: [
+            { "title": "Name, Locality", "data": function ( row, type, val, meta ) {
+                    return `${row.name} ${row.locality}`;
+                }, responsivePriority: 1
+            },
+            { "title": "Palika", "data": "palika", responsivePriority: 2 },
+            { "title": "Beds", "data": "bedcapacity", "defaultContent": '' },
+            { "title": "Contact Person", "data": "patientcontact" },
+            { "title": "Phone", "data": "patientcontactnumber", responsivePriority: 3 },
+            { "title": "Oxygen", "data": "oxygen" },
+            { "title": "Food", "data": "food" },
+            { "title": "Operated by", "data": "operatedby" },
+            { "title": "Cost", "data": "cost" },
+            // {
+            //     "title": "Map", "data": function ( row, type, val, meta ) {
+            //         if (row.lat && row.long) {
+            //             return `<a href="https://www.openstreetmap.org/#map=18/${row.lat}/${row.long}">Map</a>`;
+            //         } else if (!row.maplink) {
+            //             return `<a href="${row.maplink}">Map</a>`;
+            //         } else {
+            //             return `<a href="#">No Map</a>`;
+            //         }
+            //     }
+            // },
+        ]
+    });
 
 </script>
 </body>
