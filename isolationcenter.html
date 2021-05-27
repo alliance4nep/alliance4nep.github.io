@@ -176,7 +176,10 @@
     $('#isolation_centers').DataTable({
         ajax: {
             "url": "https://gsx2json.com/api?id=1GhnrQLqE8dnprW2v3lTKJaYJECcwRfNIiazu49TbREs&sheet=3&columns=false",
-            "dataSrc": "rows"
+            "dataSrc": function ( json ) {
+                const params = ['name', 'locality', 'ward', 'patientcontact', 'bedcapacity', 'oxygen', 'food', 'operatedby', 'cost'];
+                    return json.rows.map(row => {params.forEach((prop) => row[prop] = row[prop] ? row[prop] : '' ); return row;})
+                }
         },
         responsive: true,
         columns: [
@@ -192,17 +195,17 @@
             { "title": "Food", "data": "food" },
             { "title": "Operated by", "data": "operatedby" },
             { "title": "Cost", "data": "cost" },
-            // {
-            //     "title": "Map", "data": function ( row, type, val, meta ) {
-            //         if (row.lat && row.long) {
-            //             return `<a href="https://www.openstreetmap.org/#map=18/${row.lat}/${row.long}">Map</a>`;
-            //         } else if (!row.maplink) {
-            //             return `<a href="${row.maplink}">Map</a>`;
-            //         } else {
-            //             return `<a href="#">No Map</a>`;
-            //         }
-            //     }
-            // },
+            {
+                "title": "Map", "data": function ( row, type, val, meta ) {
+                    if (row.lat && row.long) {
+                        return `<a href="https://www.openstreetmap.org/#map=18/${row.lat}/${row.long}">Map</a>`;
+                    } else if (row.maplink) {
+                        return `<a href="${row.maplink}">Map</a>`;
+                    } else {
+                        return '';
+                    }
+                }
+            },
         ]
     });
 
