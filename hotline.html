@@ -13,6 +13,14 @@
     <script src="assets/script.js"></script>
     <link href="assets/style.css" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css"/>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
     <!-- Faviocons-->
     <link rel="apple-touch-icon" sizes="57x57" href="images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="images/icons/apple-icon-60x60.png">
@@ -85,8 +93,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-md-10">
                         <div class="hero_content text-center">
-                            <h2 class="hero_title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
-                                Resources</h2>
+                            <h2 class="hero_title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Telemedicine hotline</h2>
                         </div>
                     </div>
                 </div>
@@ -96,97 +103,8 @@
 </section>
 <section id="aboutpage">
     <div class="container py-5">
-        <h2 class="py-5">Resources</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-6">
-            <div class="col">
-                <div class="card">
-                    <img src="images/isolation.svg">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Isolation Center</h5>
-                        <p class="card-text">Create by different groups and initiatives </p>
-                        <a class="btn btn-primary stretched-link" href="isolationcenter.html">List</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="images/food.svg">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Food Assistance</h5>
-                        <p class="card-text">Food need and its distributed by different organization</p>
-                        <a class="btn btn-primary stretched-link" href="food.html">List</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="images/hotline.svg">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Telemedicine hotline</h5>
-                        <p class="card-text">Supported by trained nurses and medical officers.</p>
-                        <a class="btn btn-primary stretched-link" href="hotline.html">List</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <h5>Links</h5>
-        <ul>
-            <li><a href="https://vaccine.mohp.gov.np/">Covid19 Vaccination pre-registration Form</a></li>
-            <li><a href="https://publichealthupdate.com/list-of-coronavirus-disease-covid-19-hub-hospitals-in-nepal/">List
-                of COVID Hospitals in Nepal</a></li>
-<!--            <li><a href="https://oxygenhelp.net/test/">National O2 Status Mapping</a></li>-->
-            <li><a href="https://covid19.mohp.gov.np/">CURRENT 🇳🇵 OFFICIAL COVID STATS</a></li>
-            <li><a href="https://nphl.gov.np/covid19/">National Public Health Laboratory</a></li>
-        </ul>
-        <h5>HOTLINES & EMERGENCY</h5>
-        <ul>
-            <li>GOVT. COVID HOTLINE - 📞 <a href="tel:1133">1133</a> 📞 <a href="tel:1115">1115</a></li>
-            <li>Covid Alliance 4 Nepal - 📞 <a href="tel:9880035000">9880035000</a> - COVID related medical queries 6 AM
-                - 9 PM
-            </li>
-            <li>Hami Nepal - 📞 <a href="tel:16605152003">16605152003</a> 📞 <a href="tel:9801573330">9801573330</a>
-            </li>
-            <li>Nepal Tel Med - 📞 <a href="tel:+9779860196166">986-019-6166</a> +1-713-423-9061(TEXT-viber/whatsapp)
-            </li>
-
-        </ul>
-        <h5>OXYGEN & BEDS</h5>
-        <ul>
-            <li><a href="https://covid19.mohp.gov.np/hospital/covid_hospital.html">MOHP - Hospital Bed, ICU</a></li>
-            <li><a href="http://creasion.org/">Creasion Nepal</a></li>
-            <li><a href="https://www.facebook.com/HamiNepalYouthOrganisation/">Hami Nepal</a></li>
-            <li><a href="http://covidconnectnp.org/">Covid Connect</a></li>
-            <li><a href="https://covid-help.nedsnepal.org.np/">NEDS Nepal</a></li>
-            <li><a href="https://www.hospitalbedsnepal.com/">Hospital Beds Nepal</a></li>
-            <li><a href="https://nepalcovidsupport.com/services/5/">Nepal Covid Support</a></li>
-        </ul>
-        <h5>TOOLKIT | PROTOCOLS & TRAININGS</h5>
-        <ul>
-            <li><a href="https://sikai.org/">SIKAI - COVID Training Videos - Save the Children</a></li>
-            <li><a href="https://www.covidsancharsamuha.com/">COVID SANCHAR SAMUHA - Infographics, PSAs etc</a></li>
-            <li><a href="data/Quarantine-or-Home-Isolation-Eng-Nepali.pdf">Quarantine or Home Isolation Eng Nepali</a>
-            </li>
-            <li><a href="data/MASTER-COVID-MANAGEMENT-21-May-_-ENGLISH-_-Blueprint-CA4N.pdf">MASTER COVID MANAGEMENT 21
-                May ENGLISH Blueprint CA4N</a></li>
-            <li><a href="data/MASTER-COVID-MANAGEMENT-21-May-_-NEPALI-_-Blueprint-CA4N.pdf">MASTER COVID MANAGEMENT 21
-                May NEPALI Blueprint CA4N</a></li>
-        </ul>
-        <h5>SELF HELP GROUPS</h5>
-        <ul>
-            <li><a href="https://www.facebook.com/groups/453859702218765">Nepal Covid19 Support Group</a></li>
-            <li><a href="https://www.facebook.com/groups/covidhelplinemanang">Covid Helpline Manang</a></li>
-            <li><a href="https://www.facebook.com/CovidSancharSamuha">Covid Sanchar Samuha</a></li>
-            <li>Whatsapp group - <a href="https://chat.whatsapp.com/JIOZanxJKd85UgVb7UrS17">#NyaanoSwaagat</a> - For
-                returnees from India
-                & Abroad
-            </li>
-            <li>Whatsapp group - <a href="https://chat.whatsapp.com/JAhmGneZ9rm3mCdtp7oj2b">#strandedinnepal</a> - For
-                people stranded in
-                Nepal
-            </li>
-        </ul>
-        <p>If you have information and resource you’d like to share please <a href="contact.html">contact us</a></p>
+        <h2 class="py-5">Telemedicine hotline</h2>
+        <iframe src="https://datastudio.google.com/embed/u/0/reporting/1a49e289-ae39-4287-b39f-f20641ba61b3/page/w9EMC" frameborder="0" width="100%" height="1000"></iframe>
     </div>
 </section>
 <section id="contact">
@@ -210,6 +128,7 @@
         </div>
     </div>
 </section>
+
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -245,6 +164,46 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
+</script>
+
+
+<script>
+    $('#isolation_centers').DataTable({
+        ajax: {
+            "url": "https://gsx2json.com/api?id=1GhnrQLqE8dnprW2v3lTKJaYJECcwRfNIiazu49TbREs&sheet=3&columns=false",
+            "dataSrc": function ( json ) {
+                const params = ['name', 'locality', 'ward', 'patientcontact', 'bedcapacity', 'oxygen', 'food', 'operatedby', 'cost'];
+                    return json.rows.map(row => {params.forEach((prop) => row[prop] = row[prop] ? row[prop] : '' ); return row;})
+                }
+        },
+        responsive: true,
+        columns: [
+            { "title": "Name, Locality", "data": function ( row, type, val, meta ) {
+                    return `${row.name} ${row.locality}`;
+                }, responsivePriority: 1
+            },
+            { "title": "Palika", "data": "palika", responsivePriority: 2 },
+            { "title": "Beds", "data": "bedcapacity", "defaultContent": '' },
+            { "title": "Contact Person", "data": "patientcontact" },
+            { "title": "Phone", "data": "patientcontactnumber", responsivePriority: 3 },
+            { "title": "Oxygen", "data": "oxygen" },
+            { "title": "Food", "data": "food" },
+            { "title": "Operated by", "data": "operatedby" },
+            { "title": "Cost", "data": "cost" },
+            {
+                "title": "Map", "data": function ( row, type, val, meta ) {
+                    if (row.lat && row.long) {
+                        return `<a href="https://www.openstreetmap.org/#map=18/${row.lat}/${row.long}">Map</a>`;
+                    } else if (row.maplink) {
+                        return `<a href="${row.maplink}">Map</a>`;
+                    } else {
+                        return '';
+                    }
+                }
+            },
+        ]
+    });
+
 </script>
 </body>
 
