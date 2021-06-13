@@ -106,11 +106,11 @@
     <div class="container py-5">
         <h2 class="py-5">Isolation Centers</h2>
         <div id="loading" class="loader" hidden></div>
-        <iframe src="https://app.powerbi.com/view?r=eyJrIjoiMTM0ZmQzYjEtMTQ5Ny00NWI1LWE2MTgtNWMzZDdjMTc1YjVlIiwidCI6IjNhNzAyNzdmLTBmNGItNDZiNy05NDdjLTlmMDAxOWE3MjBkNSIsImMiOjEwfQ%3D%3D&pageName=ReportSection" frameborder="0" width="100%" height="800"></iframe>
-        <p>To add to this list please fill this <a target="_blank" href="https://alliance4nep.page.link/isolation-centers-form">form</a></p>
         <table id="isolation_centers" class="table">
         </table>
         <p>Source: <a href="https://alliance4nep.page.link/isolation-centers" target="_blank">Google spreadsheet</a></p>
+        <p>To add to this list please fill this <a target="_blank" href="https://alliance4nep.page.link/isolation-centers-form">form</a></p>
+        <iframe src="https://app.powerbi.com/view?r=eyJrIjoiMTM0ZmQzYjEtMTQ5Ny00NWI1LWE2MTgtNWMzZDdjMTc1YjVlIiwidCI6IjNhNzAyNzdmLTBmNGItNDZiNy05NDdjLTlmMDAxOWE3MjBkNSIsImMiOjEwfQ%3D%3D&pageName=ReportSection" frameborder="0" width="100%" height="800"></iframe>
     </div>
 </section>
 <section id="contact">
@@ -188,7 +188,8 @@
                     return `${row.name} ${row.locality}`;
                 }, responsivePriority: 1
             },
-            { "title": "Palika", "data": "palika", responsivePriority: 2 },
+            { "title": "District", "data": "district", responsivePriority: 2 },
+            { "title": "Palika", "data": "palika"},
             { "title": "Beds", "data": "bedcapacity", "defaultContent": '' },
             { "title": "Contact Person", "data": "patientcontact" },
             { "title": "Phone", "data": "patientcontactnumber", responsivePriority: 3 },
